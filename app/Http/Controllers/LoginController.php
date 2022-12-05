@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/bunga');
+            return redirect()->intended('/obat');
         }
 
         return back()->with('loginError', 'Login Failed !');

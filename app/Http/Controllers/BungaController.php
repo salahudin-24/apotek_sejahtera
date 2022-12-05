@@ -11,7 +11,7 @@ use App\Models\Bunga;
 class BungaController extends Controller
 {
     public function create() {
-        return view('bunga.add');
+        return view('obat.add');
     }
     public function store(Request $request) {
         $request->validate([
@@ -22,15 +22,15 @@ class BungaController extends Controller
         VALUES (:NAMA_OBAT)',[
             'NAMA_OBAT' => $request->NAMA_OBAT,]
         );
-        return redirect()->route('bunga.index')->with('success', 'Data Obat Disimpan');
+        return redirect()->route('obat.index')->with('success', 'Data Obat Disimpan');
     }
     public function index() {
         $datas = DB::select('select * from obat');
-        return view('bunga.index')->with('datas', $datas); 
+        return view('obat.index')->with('datas', $datas); 
     }
     public function edit($id) {
         $data = DB::table('obat')->where('ID_OBAT', $id)->first();
-        return view('bunga.edit')->with('data', $data);
+        return view('obat.edit')->with('data', $data);
     }
     public function update($id, Request $request) {
         $request->validate([
@@ -41,13 +41,13 @@ class BungaController extends Controller
         'id' => $id,
         'ID_OBAT' => $request->ID_OBAT,
         'NAMA_OBAT' => $request->NAMA_OBAT,]);
-    return redirect()->route('bunga.index')->with('success', 'Data Obat Diubah');
+    return redirect()->route('obat.index')->with('success', 'Data Obat Diubah');
 }
 
 public function delete($id) {
 // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
     DB::delete('DELETE FROM obat WHERE ID_OBAT = :ID_OBAT', ['ID_OBAT' => $id]);
-    return redirect()->route('bunga.index')->with('success', 'Data Obat Dihapus');
+    return redirect()->route('obat.index')->with('success', 'Data Obat Dihapus');
 }
 
 public function search(Request $request) {
@@ -56,6 +56,6 @@ public function search(Request $request) {
     }else{
         $datas = DB::select('select * from obat');
     }
-    return view('bunga.index')->with('datas', $datas); 
+    return view('obat.index')->with('datas', $datas); 
 }
 }

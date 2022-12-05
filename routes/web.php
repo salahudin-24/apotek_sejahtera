@@ -28,13 +28,13 @@ Route::post('/admin.update/{id}', [AdminController::class, 'update'])->name('adm
 Route::post('/admin.delete/{id}', [AdminController::class,'delete'])->name('admin.delete');
 Route::get('/admin.search', [AdminController::class,'search'])->name('admin.search');
 
-Route::get('//bunga', [BungaController::class, 'index'])->name('bunga.index');
-Route::get('/bunga.add', [BungaController::class, 'create'])->name('bunga.create');
-Route::post('/bunga.store', [BungaController::class, 'store'])->name('bunga.store');
-Route::get('/bunga.edit/{id}', [BungaController::class, 'edit'])->name('bunga.edit');
-Route::post('/bunga.update/{id}', [BungaController::class, 'update'])->name('bunga.update');
-Route::post('/bunga.delete/{id}', [BungaController::class,'delete'])->name('bunga.delete');
-Route::get('/bunga.search', [BungaController::class,'search'])->name('bunga.search');
+Route::get('/obat', [BungaController::class, 'index'])->name('obat.index');
+Route::get('/obat.add', [BungaController::class, 'create'])->name('obat.create');
+Route::post('/obat.store', [BungaController::class, 'store'])->name('obat.store');
+Route::get('/obat.edit/{id}', [BungaController::class, 'edit'])->name('obat.edit');
+Route::post('/obat.update/{id}', [BungaController::class, 'update'])->name('obat.update');
+Route::post('/obat.delete/{id}', [BungaController::class,'delete'])->name('obat.delete');
+Route::get('/obat.search', [BungaController::class,'search'])->name('obat.search');
 
 Route::get('/member', [MemberController::class, 'index'])->name('member.index');
 Route::get('/member.add', [MemberController::class, 'create'])->name('member.create');

@@ -1,4 +1,4 @@
-@extends('bunga.layout')
+@extends('obat.layout')
 
 @section('content')
 
@@ -6,7 +6,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <form method="GET" action="/bunga.search">        
+        <form method="GET" action="/obat.search">        
         @csrf
         <div class="input-group mb-3">
             <input type="search" name="search" class="form-control" placeholder="Cari obat">
@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<a href="{{ route('bunga.create') }}" type="button" class="btn btn-success rounded-3">Tambah Data</a>
+<a href="{{ route('obat.create') }}" type="button" class="btn btn-success rounded-3">Tambah Data</a>
 
 @if($message = Session::get('success'))
     <div class="alert alert-success mt-3" role="alert">
@@ -40,7 +40,7 @@
                 <td>{{ $data->ID_OBAT }}</td>
                 <td>{{ $data->NAMA_OBAT }}</td>
                 <td>
-                    <a href="{{ route('bunga.edit', $data->ID_OBAT) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>
+                    <a href="{{ route('obat.edit', $data->ID_OBAT) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>
 
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $data->ID_OBAT }}">
@@ -54,7 +54,7 @@
                                     <h5 class="modal-title" id="hapusModalLabel">Konfirmasi</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <form method="POST" action="{{ route('bunga.delete', $data->ID_OBAT) }}">
+                                <form method="POST" action="{{ route('obat.delete', $data->ID_OBAT) }}">
                                     @csrf
                                     <div class="modal-body">
                                         Apakah anda yakin ingin menghapus data ini?
@@ -76,7 +76,7 @@
                                 <h5 class="modal-title" id="hapusModalLabel">Konfirmasi</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <form method="POST" action="{{ route('bunga.delete', $data->ID_OBAT) }}">
+                            <form method="POST" action="{{ route('obat.delete', $data->ID_OBAT) }}">
                                 @csrf
                                 <div class="modal-body">
                                     Apakah anda yakin ingin menghapus data ini?

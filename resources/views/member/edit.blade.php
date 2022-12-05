@@ -1,4 +1,4 @@
-@extends('bunga.layout')
+@extends('obat.layout')
 
 @section('content')
 

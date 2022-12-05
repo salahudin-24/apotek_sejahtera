@@ -1,4 +1,4 @@
-@extends('bunga.layout')
+@extends('obat.layout')
 
 @section('content')
 
@@ -19,7 +19,7 @@
 
         <h5 class="card-title fw-bolder mb-3">Tambah Data Obat</h5>
 
-		<form method="post" action="{{ route('bunga.store') }}">
+		<form method="post" action="{{ route('obat.store') }}">
 			@csrf
 
 			<div class="mb-3">

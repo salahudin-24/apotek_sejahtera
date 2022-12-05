@@ -1,4 +1,4 @@
-@extends('bunga.layout')
+@extends('obat.layout')
 
 @section('content')
 
@@ -19,7 +19,7 @@
 
         <h5 class="card-title fw-bolder mb-3">Ubah Data Obat</h5>
 
-		<form method="post" action="{{ route('bunga.update', $data->ID_OBAT) }}">
+		<form method="post" action="{{ route('obat.update', $data->ID_OBAT) }}">
 			@csrf
             <div class="mb-3">
                 <!-- <label for="ID_OBAT" class="form-label">ID Bunga</label> -->
