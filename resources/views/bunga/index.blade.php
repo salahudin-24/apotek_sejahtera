@@ -2,14 +2,14 @@
 
 @section('content')
 
-<h4 class="mt-3">Data Bunga</h4>
+<h4 class="mt-3">Data Obat</h4>
 
 <div class="row justify-content-center">
     <div class="col-md-6">
         <form method="GET" action="/bunga.search">        
         @csrf
         <div class="input-group mb-3">
-            <input type="search" name="search" class="form-control" placeholder="Cari ID Bunga">
+            <input type="search" name="search" class="form-control" placeholder="Cari obat">
                 <button type="submit" class="btn btn-danger">
                     <i class="fas">Search</i>
                 </button>
@@ -29,9 +29,9 @@
 <table class="table table-hover mt-2">
     <thead>
       <tr>
-        <th>No.</th>
-        <th>Nama Bunga</th>
-        <th>Action</th>
+        <th>ID</th>
+        <th>Nama Obat</th>
+        <th>Aksi</th>
       </tr>
     </thead>
     <tbody>

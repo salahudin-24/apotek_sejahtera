@@ -29,10 +29,10 @@
 <table class="table table-hover mt-2">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>ID Pesan</th>
         <th>Tanggal Pesan</th>
         <th>ID Member</th>
-        <th>ID Bunga</th>
+        <th>ID Obat</th>
         <th>ID User</th>
         <th>Action</th>
       </tr>

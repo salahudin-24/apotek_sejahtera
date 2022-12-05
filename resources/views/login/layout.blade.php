@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Database Toko Bunga</title>
+        <title>Apotek Sejahtera</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container">
-            <a class="navbar-brand" href="/">DTB Web</a>
+            <a class="navbar-brand" href="/">KASIR</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,7 +32,7 @@
     </nav>
 
         <div class="container mt-3 text-center">
-            <h1>Database Toko Bunga</h1>
+            <h1>Kasir Apotek Sejahtera</h1>
         </div>
 
         <div class="container">

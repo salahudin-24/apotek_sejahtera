@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Database Toko Bunga</title>
+        <title>Apotek Sejahtera</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,26 +24,26 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
             <div class="container">
-                <a class="navbar-brand" href="/bunga">DTB Web</a>
+                <a class="navbar-brand" href="/bunga">KASIR</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/bunga">Data Bunga</a>
+                            <a class="nav-link active" href="/bunga">Obat</a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link active" href="/admin">Data Admin</a>
+                            <a class="nav-link active" href="/admin">Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/member">Data Member</a>
+                            <a class="nav-link active" href="/member">Member</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/pemesanan">Data Pemesanan</a>
+                            <a class="nav-link active" href="/pemesanan">Pemesanan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/detail">Data Detail Pemesanan</a>
+                            <a class="nav-link active" href="/detail">Detail Pemesanan</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">
@@ -56,7 +56,7 @@
         </nav>
 
         <div class="container mt-3 text-center">
-            <h1>Database Toko Bunga</h1>
+            <h1>Kasir Apotek Sejahtera</h1>
         </div>
 
         <div class="container">

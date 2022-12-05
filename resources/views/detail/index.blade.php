@@ -7,12 +7,12 @@
 <table class="table table-hover mt-2">
     <thead>
       <tr>
-        <th>No.</th>
+        <th>ID Pesan</th>
         <th>Tanggal Pesan</th>
         <th>Nama Member</th>
         <th>Alamat Member</th>
         <th>No Telepon</th>
-        <th>Nama Bunga</th>
+        <th>Nama Obat</th>
         <th>Nama User</th>
       </tr>
     </thead>

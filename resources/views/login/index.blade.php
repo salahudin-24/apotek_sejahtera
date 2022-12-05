@@ -19,7 +19,7 @@
   @endif
 
     <main class="form-signin">
-      <h1 class="h3 mt-5 mb-3 fw-normal text-center">Please Login</h1>
+      <h1 class="h3 mt-5 mb-3 fw-normal text-center">Login Admin</h1>
       <form action="/" method="post">
         @csrf
         <div class="form-floating">
@@ -32,7 +32,6 @@
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
       </form>
-      <small class="d-block text-center mt-3">Not Registered ? <a href="/register">Register Now !</a></small>
     </main>
   </div>
 </div>

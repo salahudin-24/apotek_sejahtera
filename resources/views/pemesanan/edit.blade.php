@@ -34,7 +34,7 @@
                 <input type="text" class="form-control" id="ID_MEMBER" name="ID_MEMBER" value="{{ $data->ID_MEMBER }}">
             </div>
             <div class="mb-3">
-                <label for="ID_BUNGA" class="form-label">ID Bunga</label>
+                <label for="ID_BUNGA" class="form-label">ID Obat</label>
                 <input type="text" class="form-control" id="ID_BUNGA" name="ID_BUNGA" value="{{ $data->ID_BUNGA }}">
             </div>
             <div class="mb-3">

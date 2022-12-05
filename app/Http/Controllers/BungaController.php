@@ -15,13 +15,11 @@ class BungaController extends Controller
     }
     public function store(Request $request) {
         $request->validate([
-            'ID_BUNGA' => 'required',
             'NAMA_BUNGA' => 'required',
         ]);
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::insert('INSERT INTO bunga(ID_BUNGA, NAMA_BUNGA) 
-        VALUES (:ID_BUNGA, :NAMA_BUNGA)',[
-            'ID_BUNGA' => $request->ID_BUNGA,
+        DB::insert('INSERT INTO bunga(NAMA_BUNGA) 
+        VALUES (:NAMA_BUNGA)',[
             'NAMA_BUNGA' => $request->NAMA_BUNGA,]
         );
         return redirect()->route('bunga.index')->with('success', 'Data Bunga berhasil disimpan');
@@ -54,7 +52,7 @@ public function delete($id) {
 
 public function search(Request $request) {
     if($request->has('search')){
-        $datas = DB::table('bunga')->where('ID_BUNGA', 'LIKE', $request->search )->get();
+        $datas = DB::table('bunga')->where('NAMA_BUNGA', 'LIKE', '%' . $request->search . '%' )->get();
     }else{
         $datas = DB::select('select * from bunga');
     }
