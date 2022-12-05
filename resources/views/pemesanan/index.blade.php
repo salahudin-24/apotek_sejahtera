@@ -29,7 +29,7 @@
 <table class="table table-hover mt-2">
     <thead>
       <tr>
-        <th>No.</th>
+        <th>ID</th>
         <th>Tanggal Pesan</th>
         <th>ID Member</th>
         <th>ID Bunga</th>

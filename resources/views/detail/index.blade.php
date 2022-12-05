@@ -13,7 +13,7 @@
         <th>Alamat Member</th>
         <th>No Telepon</th>
         <th>Nama Bunga</th>
-        <th>Nama Admin</th>
+        <th>Nama User</th>
       </tr>
     </thead>
     <tbody>
@@ -25,7 +25,7 @@
                 <td>{{ $data->ALAMAT_MEMBER }}</td>
                 <td>{{ $data->NO_TELEPON }}</td>
                 <td>{{ $data->NAMA_BUNGA }}</td>
-                <td>{{ $data->NAMA_ADMIN }}</td>
+                <td>{{ $data->nama_user }}</td>
             </tr>
             @endforeach
     </tbody>
