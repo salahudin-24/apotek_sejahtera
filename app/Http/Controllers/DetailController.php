@@ -11,10 +11,10 @@ class DetailController extends Controller
 {
     public function index() {
         $datas = DB::table('pemesanan')
-        ->leftJoin('bunga', 'pemesanan.ID_BUNGA', '=', 'bunga.ID_BUNGA')
+        ->leftJoin('obat', 'pemesanan.ID_OBAT', '=', 'obat.ID_OBAT')
         ->leftJoin('member', 'pemesanan.ID_MEMBER', '=', 'member.ID_MEMBER')
         ->leftJoin('users', 'pemesanan.id_user', '=', 'users.id_user')
-        ->select('pemesanan.ID_PESAN', 'pemesanan.TANGGAL_PESAN', 'member.NAMA_MEMBER', 'member.ALAMAT_MEMBER', 'member.NO_TELEPON', 'bunga.NAMA_BUNGA', 'users.nama_user')
+        ->select('pemesanan.ID_PESAN', 'pemesanan.TANGGAL_PESAN', 'member.NAMA_MEMBER', 'member.ALAMAT_MEMBER', 'member.NO_TELEPON', 'obat.NAMA_OBAT', 'users.nama_user')
         ->get();
         return view('detail.index')->with('datas', $datas);
     }

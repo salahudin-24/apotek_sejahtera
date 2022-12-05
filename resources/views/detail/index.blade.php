@@ -24,7 +24,7 @@
                 <td>{{ $data->NAMA_MEMBER }}</td>
                 <td>{{ $data->ALAMAT_MEMBER }}</td>
                 <td>{{ $data->NO_TELEPON }}</td>
-                <td>{{ $data->NAMA_BUNGA }}</td>
+                <td>{{ $data->NAMA_OBAT }}</td>
                 <td>{{ $data->nama_user }}</td>
             </tr>
             @endforeach

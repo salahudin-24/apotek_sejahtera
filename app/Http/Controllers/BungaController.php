@@ -15,46 +15,46 @@ class BungaController extends Controller
     }
     public function store(Request $request) {
         $request->validate([
-            'NAMA_BUNGA' => 'required',
+            'NAMA_OBAT' => 'required',
         ]);
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::insert('INSERT INTO bunga(NAMA_BUNGA) 
-        VALUES (:NAMA_BUNGA)',[
-            'NAMA_BUNGA' => $request->NAMA_BUNGA,]
+        DB::insert('INSERT INTO obat(NAMA_OBAT) 
+        VALUES (:NAMA_OBAT)',[
+            'NAMA_OBAT' => $request->NAMA_OBAT,]
         );
-        return redirect()->route('bunga.index')->with('success', 'Data Bunga berhasil disimpan');
+        return redirect()->route('bunga.index')->with('success', 'Data Obat Disimpan');
     }
     public function index() {
-        $datas = DB::select('select * from bunga');
+        $datas = DB::select('select * from obat');
         return view('bunga.index')->with('datas', $datas); 
     }
     public function edit($id) {
-        $data = DB::table('bunga')->where('ID_BUNGA', $id)->first();
+        $data = DB::table('obat')->where('ID_OBAT', $id)->first();
         return view('bunga.edit')->with('data', $data);
     }
     public function update($id, Request $request) {
         $request->validate([
-        'ID_BUNGA' => 'required',
-        'NAMA_BUNGA' => 'required',]);
+        'ID_OBAT' => 'required',
+        'NAMA_OBAT' => 'required',]);
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-    DB::update('UPDATE bunga SET ID_BUNGA = :ID_BUNGA, NAMA_BUNGA = :NAMA_BUNGA WHERE ID_BUNGA = :id',[
+    DB::update('UPDATE obat SET ID_OBAT = :ID_OBAT, NAMA_OBAT = :NAMA_OBAT WHERE ID_OBAT = :id',[
         'id' => $id,
-        'ID_BUNGA' => $request->ID_BUNGA,
-        'NAMA_BUNGA' => $request->NAMA_BUNGA,]);
-    return redirect()->route('bunga.index')->with('success', 'Data Bunga berhasil diubah');
+        'ID_OBAT' => $request->ID_OBAT,
+        'NAMA_OBAT' => $request->NAMA_OBAT,]);
+    return redirect()->route('bunga.index')->with('success', 'Data Obat Diubah');
 }
 
 public function delete($id) {
 // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-    DB::delete('DELETE FROM bunga WHERE ID_BUNGA = :ID_BUNGA', ['ID_BUNGA' => $id]);
-    return redirect()->route('bunga.index')->with('success', 'Data Bunga berhasil dihapus');
+    DB::delete('DELETE FROM obat WHERE ID_OBAT = :ID_OBAT', ['ID_OBAT' => $id]);
+    return redirect()->route('bunga.index')->with('success', 'Data Obat Dihapus');
 }
 
 public function search(Request $request) {
     if($request->has('search')){
-        $datas = DB::table('bunga')->where('NAMA_BUNGA', 'LIKE', '%' . $request->search . '%' )->get();
+        $datas = DB::table('obat')->where('NAMA_OBAT', 'LIKE', '%' . $request->search . '%' )->get();
     }else{
-        $datas = DB::select('select * from bunga');
+        $datas = DB::select('select * from obat');
     }
     return view('bunga.index')->with('datas', $datas); 
 }

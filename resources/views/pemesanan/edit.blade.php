@@ -34,8 +34,8 @@
                 <input type="text" class="form-control" id="ID_MEMBER" name="ID_MEMBER" value="{{ $data->ID_MEMBER }}">
             </div>
             <div class="mb-3">
-                <label for="ID_BUNGA" class="form-label">ID Obat</label>
-                <input type="text" class="form-control" id="ID_BUNGA" name="ID_BUNGA" value="{{ $data->ID_BUNGA }}">
+                <label for="ID_OBAT" class="form-label">ID Obat</label>
+                <input type="text" class="form-control" id="ID_OBAT" name="ID_OBAT" value="{{ $data->ID_OBAT }}">
             </div>
             <div class="mb-3">
                 <label for="id_user" class="form-label">ID User</label>

@@ -23,8 +23,8 @@
 			@csrf
 
 			<div class="mb-3">
-                <label for="NAMA_BUNGA" class="form-label">Nama Obat</label>
-                <input type="text" class="form-control" id="NAMA_BUNGA" name="NAMA_BUNGA">
+                <label for="NAMA_OBAT" class="form-label">Nama Obat</label>
+                <input type="text" class="form-control" id="NAMA_OBAT" name="NAMA_OBAT">
             </div>
 			<div class="text-center">
 				<input type="submit" class="btn btn-primary" value="Tambah" />

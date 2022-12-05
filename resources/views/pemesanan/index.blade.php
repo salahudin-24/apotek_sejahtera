@@ -43,7 +43,7 @@
                 <td>{{ $data->ID_PESAN }}</td>
                 <td>{{ $data->TANGGAL_PESAN }}</td>
                 <td>{{ $data->ID_MEMBER }}</td>
-                <td>{{ $data->ID_BUNGA }}</td>
+                <td>{{ $data->ID_OBAT }}</td>
                 <td>{{ $data->id_user }}</td>
                 <td>
                     <a href="{{ route('pemesanan.edit', $data->ID_PESAN) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>

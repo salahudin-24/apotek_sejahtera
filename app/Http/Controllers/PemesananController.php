@@ -15,19 +15,19 @@ class PemesananController extends Controller
     public function store(Request $request) {
         $request->validate([
             'TANGGAL_PESAN' => 'required',
-            'ID_BUNGA' => 'required',
+            'ID_OBAT' => 'required',
             'ID_MEMBER' => 'required',
             'id_user' => 'required',
         ]);
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::insert('INSERT INTO pemesanan(TANGGAL_PESAN, ID_BUNGA, ID_MEMBER, id_user) 
-            VALUES (:TANGGAL_PESAN, :ID_BUNGA, :ID_MEMBER, :id_user)',[
+        DB::insert('INSERT INTO pemesanan(TANGGAL_PESAN, ID_OBAT, ID_MEMBER, id_user) 
+            VALUES (:TANGGAL_PESAN, :ID_OBAT, :ID_MEMBER, :id_user)',[
             'TANGGAL_PESAN' => $request->TANGGAL_PESAN,
-            'ID_BUNGA' => $request->ID_BUNGA,
+            'ID_OBAT' => $request->ID_OBAT,
             'ID_MEMBER' => $request->ID_MEMBER,
             'id_user' => $request->id_user,]
         );
-        return redirect()->route('pemesanan.index')->with('success', 'Data Pemesanan berhasil disimpan');
+        return redirect()->route('pemesanan.index')->with('success', 'Data Pemesanan Disimpan');
     }
     public function index() {
         $datas = DB::select('select * from pemesanan');
@@ -41,23 +41,23 @@ class PemesananController extends Controller
         $request->validate([
         'ID_PESAN' => 'required',
         'TANGGAL_PESAN' => 'required',
-        'ID_BUNGA' => 'required',
+        'ID_OBAT' => 'required',
         'ID_MEMBER' => 'required',
         'id_user' => 'required',]);
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-    DB::update('UPDATE pemesanan SET ID_PESAN = :ID_PESAN, TANGGAL_PESAN = :TANGGAL_PESAN, ID_BUNGA = :ID_BUNGA, ID_MEMBER = :ID_MEMBER, id_user = :id_user WHERE ID_PESAN = :id',[
+    DB::update('UPDATE pemesanan SET ID_PESAN = :ID_PESAN, TANGGAL_PESAN = :TANGGAL_PESAN, ID_OBAT = :ID_OBAT, ID_MEMBER = :ID_MEMBER, id_user = :id_user WHERE ID_PESAN = :id',[
         'id' => $id,
         'ID_PESAN' => $request->ID_PESAN,
         'TANGGAL_PESAN' => $request->TANGGAL_PESAN,
-        'ID_BUNGA' => $request->ID_BUNGA,
+        'ID_OBAT' => $request->ID_OBAT,
         'ID_MEMBER' => $request->ID_MEMBER,
         'id_user' => $request->id_user,]);
-    return redirect()->route('pemesanan.index')->with('success', 'Data Pemesanan berhasil diubah');
+    return redirect()->route('pemesanan.index')->with('success', 'Data Pemesanan Diubah');
 }
 public function delete($id) {
 // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
     DB::delete('DELETE FROM pemesanan WHERE ID_PESAN = :ID_PESAN', ['ID_PESAN' => $id]);
-    return redirect()->route('pemesanan.index')->with('success', 'Data Pemesanan berhasil dihapus');
+    return redirect()->route('pemesanan.index')->with('success', 'Data Pemesanan Dihapus');
 }
 
 public function search(Request $request) {

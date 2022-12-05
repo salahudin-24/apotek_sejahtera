@@ -19,15 +19,15 @@
 
         <h5 class="card-title fw-bolder mb-3">Ubah Data Obat</h5>
 
-		<form method="post" action="{{ route('bunga.update', $data->ID_BUNGA) }}">
+		<form method="post" action="{{ route('bunga.update', $data->ID_OBAT) }}">
 			@csrf
             <div class="mb-3">
-                <!-- <label for="ID_BUNGA" class="form-label">ID Bunga</label> -->
-                <input type="hidden" class="form-control" id="ID_BUNGA" name="ID_BUNGA" value="{{ $data->ID_BUNGA }}">
+                <!-- <label for="ID_OBAT" class="form-label">ID Bunga</label> -->
+                <input type="hidden" class="form-control" id="ID_OBAT" name="ID_OBAT" value="{{ $data->ID_OBAT }}">
             </div>
 			<div class="mb-3">
-                <label for="NAMA_BUNGA" class="form-label">Nama Obat</label>
-                <input type="text" class="form-control" id="NAMA_BUNGA" name="NAMA_BUNGA" value="{{ $data->NAMA_BUNGA }}">
+                <label for="NAMA_OBAT" class="form-label">Nama Obat</label>
+                <input type="text" class="form-control" id="NAMA_OBAT" name="NAMA_OBAT" value="{{ $data->NAMA_OBAT }}">
             </div>
 			<div class="text-center">
 				<input type="submit" class="btn btn-primary" value="Ubah" />
