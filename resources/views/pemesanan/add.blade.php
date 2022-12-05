@@ -21,10 +21,6 @@
 
 		<form method="post" action="{{ route('pemesanan.store') }}">
 			@csrf
-            <div class="mb-3">
-                <label for="ID_PESAN" class="form-label">ID Pesan</label>
-                <input type="text" class="form-control" id="ID_PESAN" name="ID_PESAN">
-            </div>
 			<div class="mb-3">
                 <label for="TANGGAL_PESAN" class="form-label">Tanggal Pesan</label>
                 <input type="date" class="form-control" id="TANGGAL_PESAN" name="TANGGAL_PESAN">
@@ -38,8 +34,8 @@
                 <input type="text" class="form-control" id="ID_BUNGA" name="ID_BUNGA">
             </div>
             <div class="mb-3">
-                <label for="ID_ADMIN" class="form-label">ID Admin</label>
-                <input type="text" class="form-control" id="ID_ADMIN" name="ID_ADMIN">
+                <label for="id_user" class="form-label">ID User</label>
+                <input type="text" class="form-control" id="id_user" name="id_user">
             </div>
 			<div class="text-center">
 				<input type="submit" class="btn btn-primary" value="Tambah" />

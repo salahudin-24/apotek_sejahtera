@@ -33,7 +33,7 @@
         <th>Tanggal Pesan</th>
         <th>ID Member</th>
         <th>ID Bunga</th>
-        <th>ID Admin</th>
+        <th>ID User</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -44,7 +44,7 @@
                 <td>{{ $data->TANGGAL_PESAN }}</td>
                 <td>{{ $data->ID_MEMBER }}</td>
                 <td>{{ $data->ID_BUNGA }}</td>
-                <td>{{ $data->ID_ADMIN }}</td>
+                <td>{{ $data->id_user }}</td>
                 <td>
                     <a href="{{ route('pemesanan.edit', $data->ID_PESAN) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>
 
@@ -66,7 +66,7 @@
                                         Apakah anda yakin ingin menghapus data ini?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
                                         <button type="submit" class="btn btn-primary">Ya</button>
                                     </div>
                                 </form>
