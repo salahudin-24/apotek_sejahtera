@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Bunga;
 
-class BungaController extends Controller
+class ObatController extends Controller
 {
     public function create() {
         return view('obat.add');
@@ -25,7 +25,7 @@ class BungaController extends Controller
         return redirect()->route('obat.index')->with('success', 'Data Obat Disimpan');
     }
     public function index() {
-        $datas = DB::select('select * from obat');
+        $datas = DB::table('obat')->where('isArchived','=','0')->get();
         return view('obat.index')->with('datas', $datas); 
     }
     public function edit($id) {
@@ -44,6 +44,12 @@ class BungaController extends Controller
     return redirect()->route('obat.index')->with('success', 'Data Obat Diubah');
 }
 
+public function archive($id) {
+    DB::update('UPDATE obat SET isArchived =1 WHERE ID_OBAT = :ID_OBAT',[
+    'ID_OBAT' => $id]);
+return redirect()->route('obat.index')->with('success', 'Obat diarsipkan');
+}
+
 public function delete($id) {
 // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
     DB::delete('DELETE FROM obat WHERE ID_OBAT = :ID_OBAT', ['ID_OBAT' => $id]);
@@ -52,9 +58,9 @@ public function delete($id) {
 
 public function search(Request $request) {
     if($request->has('search')){
-        $datas = DB::table('obat')->where('NAMA_OBAT', 'LIKE', '%' . $request->search . '%' )->get();
+        $datas = DB::table('obat')->where('NAMA_OBAT', 'LIKE', '%' . $request->search  .'%')->where('isArchived','=','0')->get();
     }else{
-        $datas = DB::select('select * from obat');
+        $datas = DB::table('obat')->where('isArchived','=','0')->get();
     }
     return view('obat.index')->with('datas', $datas); 
 }

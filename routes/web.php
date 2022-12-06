@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BungaController;
+use App\Http\Controllers\ObatController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\DetailController;
@@ -28,13 +28,14 @@ Route::post('/admin.update/{id}', [AdminController::class, 'update'])->name('adm
 Route::post('/admin.delete/{id}', [AdminController::class,'delete'])->name('admin.delete');
 Route::get('/admin.search', [AdminController::class,'search'])->name('admin.search');
 
-Route::get('/obat', [BungaController::class, 'index'])->name('obat.index');
-Route::get('/obat.add', [BungaController::class, 'create'])->name('obat.create');
-Route::post('/obat.store', [BungaController::class, 'store'])->name('obat.store');
-Route::get('/obat.edit/{id}', [BungaController::class, 'edit'])->name('obat.edit');
-Route::post('/obat.update/{id}', [BungaController::class, 'update'])->name('obat.update');
-Route::post('/obat.delete/{id}', [BungaController::class,'delete'])->name('obat.delete');
-Route::get('/obat.search', [BungaController::class,'search'])->name('obat.search');
+Route::get('/obat', [ObatController::class, 'index'])->name('obat.index');
+Route::get('/obat.add', [ObatController::class, 'create'])->name('obat.create');
+Route::post('/obat.store', [ObatController::class, 'store'])->name('obat.store');
+Route::get('/obat.edit/{id}', [ObatController::class, 'edit'])->name('obat.edit');
+Route::post('/obat.update/{id}', [ObatController::class, 'update'])->name('obat.update');
+Route::post('/obat.archive/{id}', [ObatController::class,'archive'])->name('obat.archive');
+Route::post('/obat.delete/{id}', [ObatController::class,'delete'])->name('obat.delete');
+Route::get('/obat.search', [ObatController::class,'search'])->name('obat.search');
 
 Route::get('/member', [MemberController::class, 'index'])->name('member.index');
 Route::get('/member.add', [MemberController::class, 'create'])->name('member.create');
@@ -42,6 +43,7 @@ Route::post('/member.store', [MemberController::class, 'store'])->name('member.s
 Route::get('/member.edit/{id}', [MemberController::class, 'edit'])->name('member.edit');
 Route::post('/member.update/{id}', [MemberController::class, 'update'])->name('member.update');
 Route::post('/member.delete/{id}', [MemberController::class,'delete'])->name('member.delete');
+Route::post('/member.archive/{id}', [MemberController::class,'archive'])->name('member.archive');
 Route::get('/member.search', [MemberController::class,'search'])->name('member.search');
 
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan.index');

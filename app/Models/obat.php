@@ -10,7 +10,7 @@ class Bunga extends Model
 {
     use SoftDeletes;
     use HasFactory;
-    protected $table = 'bunga';
+    protected $table = 'obat';
     protected $guarded = [];
     public $timestamps = true;
 }
