@@ -24,7 +24,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container">
-            <a class="navbar-brand" href="/">KASIR</a>
+            <a class="navbar-brand" href="/">PEMESANAN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,7 +32,7 @@
     </nav>
 
         <div class="container mt-3 text-center">
-            <h1>Kasir Apotek Sejahtera</h1>
+            <h1>Gudang Apotek Sejahtera</h1>
         </div>
 
         <div class="container">

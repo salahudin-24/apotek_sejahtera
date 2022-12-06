@@ -16,15 +16,15 @@ class PemesananController extends Controller
         $request->validate([
             'TANGGAL_PESAN' => 'required',
             'ID_OBAT' => 'required',
-            'ID_MEMBER' => 'required',
+            'ID_CABANG' => 'required',
             'id_user' => 'required',
         ]);
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::insert('INSERT INTO pemesanan(TANGGAL_PESAN, ID_OBAT, ID_MEMBER, id_user) 
-            VALUES (:TANGGAL_PESAN, :ID_OBAT, :ID_MEMBER, :id_user)',[
+        DB::insert('INSERT INTO pemesanan(TANGGAL_PESAN, ID_OBAT, ID_Cabang, id_user) 
+            VALUES (:TANGGAL_PESAN, :ID_OBAT, :ID_CABANG, :id_user)',[
             'TANGGAL_PESAN' => $request->TANGGAL_PESAN,
             'ID_OBAT' => $request->ID_OBAT,
-            'ID_MEMBER' => $request->ID_MEMBER,
+            'ID_CABANG' => $request->ID_CABANG,
             'id_user' => $request->id_user,]
         );
         return redirect()->route('pemesanan.index')->with('success', 'Data Pemesanan Disimpan');
@@ -42,15 +42,15 @@ class PemesananController extends Controller
         'ID_PESAN' => 'required',
         'TANGGAL_PESAN' => 'required',
         'ID_OBAT' => 'required',
-        'ID_MEMBER' => 'required',
+        'ID_CABANG' => 'required',
         'id_user' => 'required',]);
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-    DB::update('UPDATE pemesanan SET ID_PESAN = :ID_PESAN, TANGGAL_PESAN = :TANGGAL_PESAN, ID_OBAT = :ID_OBAT, ID_MEMBER = :ID_MEMBER, id_user = :id_user WHERE ID_PESAN = :id',[
+    DB::update('UPDATE pemesanan SET ID_PESAN = :ID_PESAN, TANGGAL_PESAN = :TANGGAL_PESAN, ID_OBAT = :ID_OBAT, ID_CABANG = :ID_CABANG, id_user = :id_user WHERE ID_PESAN = :id',[
         'id' => $id,
         'ID_PESAN' => $request->ID_PESAN,
         'TANGGAL_PESAN' => $request->TANGGAL_PESAN,
         'ID_OBAT' => $request->ID_OBAT,
-        'ID_MEMBER' => $request->ID_MEMBER,
+        'ID_CABANG' => $request->ID_CABANG,
         'id_user' => $request->id_user,]);
     return redirect()->route('pemesanan.index')->with('success', 'Data Pemesanan Diubah');
 }

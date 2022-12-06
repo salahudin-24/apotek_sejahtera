@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ObatController;
-use App\Http\Controllers\MemberController;
+use App\Http\Controllers\CabangController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\LoginController;
@@ -37,14 +37,14 @@ Route::post('/obat.archive/{id}', [ObatController::class,'archive'])->name('obat
 Route::post('/obat.delete/{id}', [ObatController::class,'delete'])->name('obat.delete');
 Route::get('/obat.search', [ObatController::class,'search'])->name('obat.search');
 
-Route::get('/member', [MemberController::class, 'index'])->name('member.index');
-Route::get('/member.add', [MemberController::class, 'create'])->name('member.create');
-Route::post('/member.store', [MemberController::class, 'store'])->name('member.store');
-Route::get('/member.edit/{id}', [MemberController::class, 'edit'])->name('member.edit');
-Route::post('/member.update/{id}', [MemberController::class, 'update'])->name('member.update');
-Route::post('/member.delete/{id}', [MemberController::class,'delete'])->name('member.delete');
-Route::post('/member.archive/{id}', [MemberController::class,'archive'])->name('member.archive');
-Route::get('/member.search', [MemberController::class,'search'])->name('member.search');
+Route::get('/cabang', [CabangController::class, 'index'])->name('cabang.index');
+Route::get('/cabang.add', [CabangController::class, 'create'])->name('cabang.create');
+Route::post('/cabang.store', [CabangController::class, 'store'])->name('cabang.store');
+Route::get('/cabang.edit/{id}', [CabangController::class, 'edit'])->name('cabang.edit');
+Route::post('/cabang.update/{id}', [CabangController::class, 'update'])->name('cabang.update');
+Route::post('/cabang.delete/{id}', [CabangController::class,'delete'])->name('cabang.delete');
+Route::post('/cabang.archive/{id}', [CabangController::class,'archive'])->name('cabang.archive');
+Route::get('/cabang.search', [CabangController::class,'search'])->name('cabang.search');
 
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan.index');
 Route::get('/pemesanan.add', [PemesananController::class, 'create'])->name('pemesanan.create');

@@ -30,8 +30,8 @@
                 <input type="date" class="form-control" id="TANGGAL_PESAN" name="TANGGAL_PESAN" value="{{ $data->TANGGAL_PESAN }}">
             </div>
             <div class="mb-3">
-                <label for="ID_MEMBER" class="form-label">ID Member</label>
-                <input type="text" class="form-control" id="ID_MEMBER" name="ID_MEMBER" value="{{ $data->ID_MEMBER }}">
+                <label for="ID_CABANG" class="form-label">ID Cabang</label>
+                <input type="text" class="form-control" id="ID_CABANG" name="ID_CABANG" value="{{ $data->ID_CABANG }}">
             </div>
             <div class="mb-3">
                 <label for="ID_OBAT" class="form-label">ID Obat</label>
