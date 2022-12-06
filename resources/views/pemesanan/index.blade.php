@@ -6,7 +6,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <form method="GET" action="/pemesanan.search">        
+        <form method="GET" action="/pemesanan.search">
         @csrf
         <div class="input-group mb-3">
             <input type="search" name="search" class="form-control" placeholder="Cari ID Pemesanan">
@@ -121,7 +121,7 @@
                                 Apakah anda yakin ingin menghapus data ini?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
                                 <button type="button" class="btn btn-primary">Ya</button>
                             </div>
                         </div>
