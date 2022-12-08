@@ -36,6 +36,11 @@ Route::post('/obat.update/{id}', [ObatController::class, 'update'])->name('obat.
 Route::post('/obat.archive/{id}', [ObatController::class,'archive'])->name('obat.archive');
 Route::post('/obat.delete/{id}', [ObatController::class,'delete'])->name('obat.delete');
 Route::get('/obat.search', [ObatController::class,'search'])->name('obat.search');
+Route::get('/obat.archived', [ObatController::class,'archived'])->name('obat.archived');
+Route::post('/obat.recover/{id}', [ObatController::class,'recover'])->name('obat.recover');
+Route::post('/obat.delete_archived/{id}', [ObatController::class,'delete_archived'])->name('obat.delete_archived');
+Route::get('/obat.search_archived', [ObatController::class,'search_archived'])->name('obat.search_archived');
+
 
 Route::get('/cabang', [CabangController::class, 'index'])->name('cabang.index');
 Route::get('/cabang.add', [CabangController::class, 'create'])->name('cabang.create');
@@ -45,6 +50,11 @@ Route::post('/cabang.update/{id}', [CabangController::class, 'update'])->name('c
 Route::post('/cabang.delete/{id}', [CabangController::class,'delete'])->name('cabang.delete');
 Route::post('/cabang.archive/{id}', [CabangController::class,'archive'])->name('cabang.archive');
 Route::get('/cabang.search', [CabangController::class,'search'])->name('cabang.search');
+Route::get('/cabang.archived', [CabangController::class, 'archived'])->name('cabang.archived');
+Route::post('/cabang.recover/{id}', [CabangController::class, 'recover'])->name('cabang.recover');
+Route::post('/cabang.delete_archived/{id}', [CabangController::class,'delete_archived'])->name('cabang.delete_archived');
+Route::get('/cabang.search_archived', [CabangController::class,'search_archived'])->name('cabang.search_archived');
+
 
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan.index');
 Route::get('/pemesanan.add', [PemesananController::class, 'create'])->name('pemesanan.create');

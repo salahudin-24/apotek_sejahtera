@@ -28,6 +28,12 @@ class ObatController extends Controller
         $datas = DB::table('obat')->where('isArchived','=','0')->get();
         return view('obat.index')->with('datas', $datas); 
     }
+
+    public function archived() {
+        $datas = DB::table('obat')->where('isArchived','=','1')->get();
+        return view('obat.archived')->with('datas', $datas); 
+    }
+
     public function edit($id) {
         $data = DB::table('obat')->where('ID_OBAT', $id)->first();
         return view('obat.edit')->with('data', $data);
@@ -50,10 +56,23 @@ public function archive($id) {
 return redirect()->route('obat.index')->with('success', 'Obat diarsipkan');
 }
 
+public function recover($id) {
+    DB::update('UPDATE obat SET isArchived =0 WHERE ID_OBAT = :ID_OBAT',[
+    'ID_OBAT' => $id]);
+return redirect()->route('obat.archived')->with('success', 'Obat dikembalikan');
+}
+
+
 public function delete($id) {
 // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
     DB::delete('DELETE FROM obat WHERE ID_OBAT = :ID_OBAT', ['ID_OBAT' => $id]);
     return redirect()->route('obat.index')->with('success', 'Data Obat Dihapus');
+}
+
+public function delete_archived($id) {
+// Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
+    DB::delete('DELETE FROM obat WHERE ID_OBAT = :ID_OBAT', ['ID_OBAT' => $id]);
+    return redirect()->route('obat.archived')->with('success', 'Data Obat Dihapus');
 }
 
 public function search(Request $request) {
@@ -64,4 +83,14 @@ public function search(Request $request) {
     }
     return view('obat.index')->with('datas', $datas); 
 }
+
+public function search_archived(Request $request) {
+    if($request->has('search_archived')){
+        $datas = DB::table('obat')->where('NAMA_OBAT', 'LIKE', '%' . $request->search_archived  .'%')->where('isArchived','=','1')->get();
+    }else{
+        $datas = DB::table('obat')->where('isArchived','=','1')->get();
+    }
+    return view('obat.archived')->with('datas', $datas); 
+}
+
 }

@@ -30,6 +30,13 @@ class CabangController extends Controller
         $datas = DB::table('cabang')->where('isArchived','=','0')->get();
         return view('cabang.index')->with('datas', $datas);
     }
+
+    public function archived() {
+        $datas = DB::table('cabang')->where('isArchived','=','1')->get();
+        return view('cabang.archived')->with('datas', $datas);
+    }
+
+    
     public function edit($id) {
         $data = DB::table('cabang')->where('ID_CABANG', $id)->first();
         return view('cabang.edit')->with('data', $data);
@@ -50,24 +57,46 @@ class CabangController extends Controller
     return redirect()->route('cabang.index')->with('success', 'Data Cabang berhasil diubah');
 }
 
-public function archive($id) {
-    DB::update('UPDATE cabang SET isArchived =1 WHERE ID_CABANG = :ID_CABANG',[
-    'ID_CABANG' => $id]);
-return redirect()->route('cabang.index')->with('success', 'Cabang diarsipkan');
-}
-
-public function delete($id) {
-// Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-    DB::delete('DELETE FROM cabang WHERE ID_CABANG = :ID_CABANG', ['ID_CABANG' => $id]);
-    return redirect()->route('cabang.index')->with('success', 'Data Cabang berhasil dihapus');
-}
-
-public function search(Request $request) {
-    if($request->has('search')){
-        $datas = DB::table('cabang')->where('NAMA_CABANG', 'LIKE', '%' . $request->search  .'%')->where('isArchived','=','0')->get();
-    }else{
-        $datas = DB::table('cabang')->where('isArchived','=','0')->get();
+    public function archive($id) {
+        DB::update('UPDATE cabang SET isArchived =1 WHERE ID_CABANG = :ID_CABANG',[
+        'ID_CABANG' => $id]);
+    return redirect()->route('cabang.index')->with('success', 'Cabang diarsipkan');
     }
-    return view('cabang.index')->with('datas', $datas); 
-}
+
+    public function recover($id) {
+        DB::update('UPDATE cabang SET isArchived =0 WHERE ID_CABANG = :ID_CABANG',[
+        'ID_CABANG' => $id]);
+    return redirect()->route('cabang.archived')->with('success', 'Cabang Dikembalikan');
+    }
+
+    public function delete($id) {
+    // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
+        DB::delete('DELETE FROM cabang WHERE ID_CABANG = :ID_CABANG', ['ID_CABANG' => $id]);
+        return redirect()->route('cabang.index')->with('success', 'Data Cabang berhasil dihapus');
+    }
+
+
+    public function delete_archived($id) {
+        // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
+            DB::delete('DELETE FROM cabang WHERE ID_CABANG = :ID_CABANG', ['ID_CABANG' => $id]);
+            return redirect()->route('cabang.archived')->with('success', 'Data Cabang berhasil dihapus');
+        }
+
+    public function search(Request $request) {
+        if($request->has('search')){
+            $datas = DB::table('cabang')->where('NAMA_CABANG', 'LIKE', '%' . $request->search  .'%')->where('isArchived','=','0')->get();
+        }else{
+            $datas = DB::table('cabang')->where('isArchived','=','0')->get();
+        }
+        return view('cabang.index')->with('datas', $datas); 
+    }
+
+    public function search_archived(Request $request) {
+        if($request->has('search_archived')){
+            $datas = DB::table('cabang')->where('NAMA_CABANG', 'LIKE', '%' . $request->search_archived  .'%')->where('isArchived','=','1')->get();
+        }else{
+            $datas = DB::table('cabang')->where('isArchived','=','1')->get();
+        }
+        return view('cabang.archived')->with('datas', $datas); 
+    }
 }

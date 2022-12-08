@@ -4,12 +4,14 @@
 
 <h4 class="mt-3">Data Cabang</h4>
 
+
+
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <form method="GET" action="/cabang.search">        
+        <form method="GET" action="/cabang.search_archived">        
         @csrf
         <div class="input-group mb-3">
-            <input type="search" name="search" class="form-control" placeholder="Cari Nama Cabang">
+            <input type="search" name="search_archived" class="form-control" placeholder="Cari Nama Cabang">
                 <button type="submit" class="btn btn-danger">
                     <i class="fas">Search</i>
                 </button>
@@ -18,8 +20,7 @@
     </div>
 </div>
 
-<a href="{{ route('cabang.create') }}" type="button" class="btn btn-success rounded-3">Tambah Data</a>
-<a href="{{ route('cabang.archived') }}" type="button" class="btn btn-warning rounded-3">Lihat Cabang Diarsipkan</a>
+<a href="{{ route('cabang.index') }}" type="button" class="btn btn-warning rounded-3">Lihat Cabang Aktif</a>
 
 
 @if($message = Session::get('success'))
@@ -46,25 +47,24 @@
                 <td>{{ $data->NO_TELEPON }}</td>
                 <td>{{ $data->ALAMAT_CABANG }}</td>
                 <td>                    
-                    <a href="{{ route('cabang.edit', $data->ID_CABANG) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>
 
 
-                    <!-- Button trigger modal Arsipkan -->
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#arsipModal{{ $data->ID_CABANG }}">
-                        Arsipkan
+                    <!-- Button trigger modal Kembalikan -->
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recoverModal{{ $data->ID_CABANG }}">
+                        Kembalikan
                     </button>
                     <!-- Modal -->
-                        <div class="modal fade" id="arsipModal{{ $data->ID_CABANG }}" tabindex="-1" aria-labelledby="arsipModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="recoverModal{{ $data->ID_CABANG }}" tabindex="-1" aria-labelledby="recoverpModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="arsipModalLabel">Konfirmasi</h5>
+                                        <h5 class="modal-title" id="recoverModalLabel">Konfirmasi</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="{{ route('cabang.archive', $data->ID_CABANG) }}">
+                                    <form method="POST" action="{{ route('cabang.recover', $data->ID_CABANG) }}">
                                         @csrf
                                         <div class="modal-body">
-                                            Apakah anda yakin mengarsipkan cabang ini?
+                                            Apakah anda yakin Mengembalikan cabang ini?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
@@ -88,7 +88,7 @@
                                         <h5 class="modal-title" id="hapusModalLabel">Konfirmasi</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="{{ route('cabang.delete', $data->ID_CABANG) }}">
+                                    <form method="POST" action="{{ route('cabang.delete_archived', $data->ID_CABANG) }}">
                                         @csrf
                                         <div class="modal-body">
                                             Apakah anda yakin ingin menghapus data ini?

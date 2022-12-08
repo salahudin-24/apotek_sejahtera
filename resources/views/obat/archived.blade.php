@@ -6,10 +6,10 @@
 
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <form method="GET" action="/obat.search">        
+        <form method="GET" action="/obat.search_archived">        
         @csrf
         <div class="input-group mb-3">
-            <input type="search" name="search" class="form-control" placeholder="Cari obat">
+            <input type="search" name="search_archived" class="form-control" placeholder="Cari obat">
                 <button type="submit" class="btn btn-danger">
                     <i class="fas">Search</i>
                 </button>
@@ -18,8 +18,7 @@
     </div>
 </div>
 
-<a href="{{ route('obat.create') }}" type="button" class="btn btn-success rounded-3">Tambah Data</a>
-<a href="{{ route('obat.archived') }}" type="button" class="btn btn-warning rounded-3">Lihat Obat Diarsipkan</a>
+<a href="{{ route('obat.index') }}" type="button" class="btn btn-warning rounded-3">Lihat Obat Tersedia</a>
 
 
 @if($message = Session::get('success'))
@@ -42,24 +41,22 @@
                 <td>{{ $data->ID_OBAT }}</td>
                 <td>{{ $data->NAMA_OBAT }}</td>
                 <td>
-                    <a href="{{ route('obat.edit', $data->ID_OBAT) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>
-
                     <!-- Button trigger modal arsipkan-->
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#archiveModal{{ $data->ID_OBAT }}">
-                        Arsipkan
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recoverModal{{ $data->ID_OBAT }}">
+                        Recover
                     </button>
                     <!-- Modal -->
-                    <div class="modal fade" id="archiveModal{{ $data->ID_OBAT }}" tabindex="-1" aria-labelledby="archiveModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="recoverModal{{ $data->ID_OBAT }}" tabindex="-1" aria-labelledby="recoverModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="archiveModalLabel">Konfirmasi</h5>
+                                    <h5 class="modal-title" id="recoverModalLabel">Konfirmasi</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <form method="POST" action="{{ route('obat.archive', $data->ID_OBAT) }}">
+                                <form method="POST" action="{{ route('obat.recover', $data->ID_OBAT) }}">
                                     @csrf
                                     <div class="modal-body">
-                                        Apakah anda yakin mengarsipkan obat ini?
+                                        Apakah anda yakin mengembalikan obat ini?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
@@ -82,7 +79,7 @@
                                     <h5 class="modal-title" id="hapusModalLabel">Konfirmasi</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <form method="POST" action="{{ route('obat.delete', $data->ID_OBAT) }}">
+                                <form method="POST" action="{{ route('obat.delete_archived', $data->ID_OBAT) }}">
                                     @csrf
                                     <div class="modal-body">
                                         Apakah anda yakin ingin menghapus data ini?
