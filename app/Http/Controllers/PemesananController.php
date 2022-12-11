@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class PemesananController extends Controller
 {
     public function create() {
-        return view('pemesanan.add');
+        $cabangs = DB::select('select * from cabang');
+        $users = DB::select('select * from users');
+        $obats = DB::select('select * from obat');
+        return view('pemesanan.add')->with('cabangs',$cabangs)->with('users',$users)->with('obats',$obats);
     }
     public function store(Request $request) {
         $request->validate([
@@ -33,9 +36,11 @@ class PemesananController extends Controller
         $datas = DB::select('select * from pemesanan');
         return view('pemesanan.index')->with('datas', $datas);
     }
+
+
     public function edit($id) {
         $data = DB::table('pemesanan')->where('ID_PESAN', $id)->first();
-        return view('pemesanan.edit')->with('data', $data);
+        return view('pemesanan.edit')->with('data', $data)->with("cabangs", $cabangs);
     }
     public function update($id, Request $request) {
         $request->validate([
